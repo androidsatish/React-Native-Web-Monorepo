@@ -14,11 +14,20 @@ import {
   View,
   Text,
   StatusBar,
+  Platform
 } from 'react-native';
 
 
 
 const App = () => {
+  let platform = '';
+  if (Platform.OS === 'android') {
+    platform = 'android';
+  } else if (Platform.OS === 'ios') {
+    platform = 'ios';
+  } else if (Platform.OS === 'web') {
+    platform = 'web';
+  }
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -26,17 +35,17 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-        
+
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Welcome Satish to monorepo</Text>
-              <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionTitle}>Welcome Satish to monorepo on</Text>
+              <Text style={styles.sectionTitle}>Current Platform : {platform}</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
+                Edit <Text style={styles.highlight}>App.native.js</Text> to change this
                 screen and then come back to see your edits.
               </Text>
             </View>
-    
+
           </View>
         </ScrollView>
       </SafeAreaView>
