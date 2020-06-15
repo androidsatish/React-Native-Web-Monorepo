@@ -1,6 +1,17 @@
 const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
+const { override, addBabelPlugins, babelInclude } = require('customize-cra');
+
+module.exports = override(
+  ...addBabelPlugins('@babel/plugin-proposal-class-properties'),
+  babelInclude([
+    path.resolve(__dirname, 'node_modules/react-native-elements'),
+    path.resolve(__dirname, 'node_modules/react-native-vector-icons'),
+    path.resolve(__dirname, 'node_modules/react-native-ratings'),
+    path.resolve(__dirname, 'src'),
+  ])
+);
 
 const appDirectory = fs.realpathSync(process.cwd())
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath)

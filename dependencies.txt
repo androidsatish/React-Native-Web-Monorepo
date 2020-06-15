@@ -1,0 +1,7 @@
+yarn add @react-navigation/native &&
+yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view && 
+yarn add @react-navigation/stack &&
+npm install redux &&
+yarn add react-redux &&
+yarn add react-native-device-info &&
+npm install redux-thunk
